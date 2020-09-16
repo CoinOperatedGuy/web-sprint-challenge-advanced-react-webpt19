@@ -30,13 +30,36 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+First you need to extend the parent class. Then you set up your constructor if needed, though often afterwards you can just set up your states that you need to have controlled at that level. super imposes strict access to "this" for this.state.
+
 2. Describe the different phases of the component lifecycle.
+
+Render Phase: the base information before getting and setting any states, usually involves an initial state to be modified later. This is also the phase in the beginning that renders the base information, and then recycles whenever something gets changed.
+
+Pre-Commit Phase: reading what is on the DOM, no matter if at this stage something have been updated or added.
+
+Commit Phase: Runs side effects, updates the DOM after checking it's health, then schedules needed updates to re-render informaiton.
+
+Birth/Mounting: This is when everything gets invoked/Mounted.
+componentDidMount gets called.
+
+Growth/Updating: Set State can update and change component information, pushing a rerender of information.
+shouldComponentUpdate gets called if added.
+
+Death/Un-Mount: Component is removed.
+componentWillUnmount can be called for things like Clean-up actions.
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
+First, constructor is called if it has one and doesn't apply function. It gets called with props: Super is required to pass the props. Next, you initialize your states to be set, valued, called upon. After everything is rendered for the first time, call your componentDidMount. After which it'll call a re-render, but CDM is only called once. componentDidMount is a method called once in the beginning to set up the initial state of the component.
+
 4. Define stateful logic.
 
+Stateful Logic is logic built into the components we code. Usually involves gaining access or running functions involved with state, such as setting state based on user input or functions such as those that update information to be rendered.
+
 5. Describe how to test a React component with React Testing Library.
+
+First you import React, your testing library, and then the component you want to test. Then you call the component to make sure that it actually renders. Then you set up your arrangement so the test can locate what you want to test, such as pulling getBy information so you can use it in your act stage. Then you act on your test, by searching for your information. Finally, you assert that your testing completes in the method your test requires.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
